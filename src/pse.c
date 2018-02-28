@@ -13,21 +13,21 @@
 ** If not, see <http://www.gnu.org/licenses/>.
 */
 
-#ifndef TNC_PSE_H
-#define TNC_PSE_H 1
+#include "pse.h"
 
-#include <stdlib.h>
-
-struct tnc_element
-{
-    uint16_t atomic_no;
-    char     symbol[2];
-    double   ram;
+struct tnc_element g_pse[2] = {
+    [0] = {1, "H\0", 1.001},
+    [1] = {2, "He", 4.003}
 };
 
-extern struct tnc_element g_pse[2];
+void
+tnc_export_pse(void)
+{
 
-extern void tnc_export_pse(void);
-extern void tnc_import_pse(char const *const path);
+}
 
-#endif /* !TNC_PSE_H */
+void
+tnc_import_pse(char const *const path)
+{
+
+}
