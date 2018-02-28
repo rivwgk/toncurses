@@ -5,7 +5,7 @@ vpath % $(SRC)
 
 ###------------------------------------------------------------------------###
 # put all your sources in this block
-OBJS=main.o
+OBJS=main.o pse.o
 
 ###------------------------------------------------------------------------###
 # choose your compiler here
