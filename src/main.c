@@ -18,8 +18,21 @@
 int
 main(int argc, char* argv[argc+1])
 {
+    int ch;
+
     initscr();
-    getch();
+    raw();
+    keypad(stdscr, TRUE);
+    noecho();
+
+    while (true)
+    {
+        ch = getch();
+        if (ch=='q')
+        {
+            break;
+        }
+    }
 
     endwin();
     return EXIT_SUCCESS;
