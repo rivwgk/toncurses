@@ -27,6 +27,7 @@
 #include <string.h>
 #include <signal.h>
 #include <tgmath.h>
+
 #include <ncurses.h>
 
 #endif /* !TNC_MAIN_H */

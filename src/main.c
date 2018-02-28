@@ -18,20 +18,15 @@
 int
 main(int argc, char* argv[argc+1])
 {
-    int ch;
-
     initscr();
     raw();
     keypad(stdscr, TRUE);
     noecho();
 
-    while (true)
-    {
-        ch = getch();
-        if (ch=='q')
-        {
+    while (true) {
+        int ch = getch();
+        if (ch == 'q')
             break;
-        }
     }
 
     endwin();
