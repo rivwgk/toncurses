@@ -21,7 +21,7 @@ struct tnc_element g_pse[2] = {
 };
 
 void
-tnc_export_pse(void)
+tnc_export_pse(char const *const path)
 {
 
 }

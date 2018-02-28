@@ -17,6 +17,7 @@
 #define TNC_PSE_H 1
 
 #include <stdlib.h>
+#include <stdint.h>
 
 struct tnc_element
 {
@@ -27,7 +28,7 @@ struct tnc_element
 
 extern struct tnc_element g_pse[2];
 
-extern void tnc_export_pse(void);
+extern void tnc_export_pse(char const *const path);
 extern void tnc_import_pse(char const *const path);
 
 #endif /* !TNC_PSE_H */
