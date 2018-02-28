@@ -30,4 +30,8 @@
 
 #include <ncurses.h>
 
+WINDOW* create_newwin(int height, int width, int starty, int startx);
+WINDOW* create_elem(int y, int x, char esym[2], double val);
+void destroy_win(WINDOW* local_win);
+
 #endif /* !TNC_MAIN_H */
