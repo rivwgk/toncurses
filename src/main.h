@@ -26,7 +26,6 @@
 #include <stdlib.h>
 #include <string.h>
 #include <signal.h>
-#include <thread.h>
 #include <tgmath.h>
 
 #endif /* !TNC_MAIN_H */
