@@ -16,7 +16,11 @@
 #include "main.h"
 
 int
-main(int argc, char *argv[argc])
+main(int argc, char* argv[argc+1])
 {
-    return 0;
+    initscr();
+    getch();
+
+    endwin();
+    return EXIT_SUCCESS;
 }

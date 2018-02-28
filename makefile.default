@@ -1,0 +1,62 @@
+###------------------------------------------------------------------------###
+# we start searching for source code in SRC, you can expand this path also
+# to other source directories
+vpath % $(SRC)
+
+###------------------------------------------------------------------------###
+# put all your sources in this block
+OBJS=main.o
+
+###------------------------------------------------------------------------###
+# choose your compiler here
+OSTYPE=LINUXG
+
+ifeq ($(OSTYPE),LINUXG)
+CC=gcc
+
+# compile flags
+CCFLAGS = -O -g -std=c11
+
+# linker flags
+LINKER = icc
+
+# all libraries we could need
+LIBS = -lncurses -lpthread -lm
+
+endif
+
+
+###------------------------------------------------------------------------###
+# these targets exist:
+.PHONY: all
+.PHONY: clean
+
+# this is the first, so it will be made by default
+all: $(OUT) $(EXE) $(EXE)/$(PROG)
+
+###------------------------------------------------------------------------###
+# put all object files in the subdirectories
+SRCS = $(patsubst %,$(OUT)/%,$(OBJS))
+
+# define the rules to actually build them
+$(OUT)/%.o: %.c %.h
+	@echo "making $@ from $<" && \
+	$(CC) $(CFLAGS) -o $@ -c $<
+
+###------------------------------------------------------------------------###
+# build everything together
+$(EXE)/$(PROG): $(SRCS)
+	$(LINKER) $^ $(LIBS) -o $@
+
+# clean up, at the right places
+clean:
+	$(RM) $(OUT)/*.o $(EXE)/$(PROG)
+
+###------------------------------------------------------------------------###
+# maybe the build directory is missing, if so we should create it
+$(OUT):
+	@echo "making a directory for the object files" && mkdir -p $@
+
+# if the output directory is not present, better create one
+$(EXE):
+	@echo "making a directory for the binaries" && mkdir -p $@
