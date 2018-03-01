@@ -28,6 +28,7 @@ endif
 
 ###------------------------------------------------------------------------###
 # these targets exist:
+.DEFAULT_TARGET = all
 .PHONY: all
 .PHONY: clean
 
@@ -42,6 +43,8 @@ SRCS = $(patsubst %,$(OUT)/%,$(OBJS))
 $(OUT)/%.o: %.c %.h
 	@echo "making $@ from $<" && \
 	$(CC) $(CFLAGS) -o $@ -c $<
+
+window.h: main.h
 
 ###------------------------------------------------------------------------###
 # build everything together

@@ -13,6 +13,7 @@
 ** If not, see <http://www.gnu.org/licenses/>.
 */
 
+#include <stdio.h>
 #include "pse.h"
 
 struct tnc_element g_pse[2] = {
@@ -23,11 +24,23 @@ struct tnc_element g_pse[2] = {
 void
 tnc_export_pse(char const *const path)
 {
+    FILE *fh = fopen(path, "r");
+    if (!fh)
+        goto exit;
 
+    fclose(fh);
+exit:
+    return;
 }
 
 void
 tnc_import_pse(char const *const path)
 {
+    FILE *fh = fopen(path, "w");
+    if (!fh)
+        goto exit;
 
+    fclose(fh);
+exit:
+    return;
 }

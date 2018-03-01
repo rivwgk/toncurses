@@ -15,12 +15,12 @@
 
 #include "window.h"
 
-WINDOW* create_elem(int h, int w, int y, int x, char esym[2], double val)
+WINDOW* create_elem(int h, int w, int y, int x, char const esym[2], double val)
 {
   WINDOW* local_win;
-  local_win = newwin(h,w,h*y,w*x);
+  local_win = newwin(h, w, h * y, w * x);
   mvwprintw(local_win, 2, 1, "%f1.2", val);
-  wborder(local_win,' ','|',' ','-',' ','|','-','+');
+  wborder(local_win, ' ', '|', ' ', '-', ' ', '|', '-', '+');
   mvwprintw(local_win, 0, 1, esym);
   wrefresh(local_win);
   return local_win;
@@ -29,15 +29,15 @@ WINDOW* create_elem(int h, int w, int y, int x, char esym[2], double val)
 WINDOW* create_newwin(int h, int w, int sy, int sx)
 {
   WINDOW* local_win;
-  local_win = newwin(h,w,sy,sx);
-  box(local_win,0,0);
+  local_win = newwin(h, w, sy, sx);
+  box(local_win, 0, 0);
   wrefresh(local_win);
   return local_win;
 }
 
 void destroy_win(WINDOW* local_win)
 {
-  wborder(local_win,' ',' ',' ',' ',' ',' ',' ',' ');
+  wborder(local_win, ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ');
   wrefresh(local_win);
   delwin(local_win);
 }

@@ -16,22 +16,10 @@
 #ifndef TNC_WINDOW_H
 #define TNC_WINDOW_H 1
 
-#include <assert.h>
-#include <limits.h>
-#include <stdio.h>
-#include <stdarg.h>
-#include <stdbool.h>
-#include <stddef.h>
-#include <stdint.h>
-#include <stdlib.h>
-#include <string.h>
-#include <signal.h>
-#include <tgmath.h>
-
-#include <ncurses.h>
+#include "main.h"
 
 WINDOW* create_newwin(int height, int width, int starty, int startx);
-WINDOW* create_elem(int h, int w, int y, int x, char esym[2], double val);
+WINDOW* create_elem(int h, int w, int y, int x, char const esym[2], double val);
 void destroy_win(WINDOW* local_win);
 
 #endif /* !TNC_WINDOW_H */
