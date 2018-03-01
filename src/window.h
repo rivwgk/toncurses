@@ -13,8 +13,8 @@
 ** If not, see <http://www.gnu.org/licenses/>.
 */
 
-#ifndef TNC_MAIN_H
-#define TNC_MAIN_H 1
+#ifndef TNC_WINDOW_H
+#define TNC_WINDOW_H 1
 
 #include <assert.h>
 #include <limits.h>
@@ -34,4 +34,4 @@ WINDOW* create_newwin(int height, int width, int starty, int startx);
 WINDOW* create_elem(int h, int w, int y, int x, char esym[2], double val);
 void destroy_win(WINDOW* local_win);
 
-#endif /* !TNC_MAIN_H */
+#endif /* !TNC_WINDOW_H */
